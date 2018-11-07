@@ -17,29 +17,26 @@ pipeUp.src = "img/flappy_bird_pipeUp.png";
 // Звуковые файлы
 var fly = new Audio ();
 var scoreAudio = new Audio();
-var laugh = new Audio();
+
 
 fly.src = "js_game_audio/fly.mp3";
 scoreAudio.src = "js_game_audio/score.mp3";
-laugh.src = "js_game_audio/laugh.mp3"
+
 
 
 var gap = 120;
 // При нажатии на кнопку
 document.addEventListener("keydown",moveUp); // найти addEventListener
 function moveUp (){
-  yPos -= 40;
+  yPos -= 30;
   fly.play();
 
-  if ((score%5)==1){
-    laugh.play();
-  }
 }
 
 // создание блоков
 var pipe = [];
 pipe[0] = {
-  x:cvs.width,
+  x:cvs.width+120,
   y:0
 }
 
@@ -47,7 +44,7 @@ var score=0;
 //позиция птички
 var xPos = 10;
 var yPos = 150;
-var grav = 2;
+var grav = 1.2;
 
 
 function draw (){
@@ -59,7 +56,7 @@ function draw (){
 
     pipe[i].x--;
 
-    if (pipe[i].x == 125){
+    if (pipe[i].x == 80){
     pipe.push({
       x:cvs.width,
       y: Math.floor(Math.random()* pipeUp.height - pipeUp.height)
