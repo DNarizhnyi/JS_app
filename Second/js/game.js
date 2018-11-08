@@ -24,7 +24,6 @@ yellow.src = "img/Solo_Yellow.png";
 blue.src = "img/Solo_Blue.png";
 dark_blue.src = "img/Solo_Dark_Blue.png";
 
-// создание новых падающих кубиков
 document.addEventListener("keydown", move);
 function move(e) {
   switch (e.keyCode) {
@@ -34,28 +33,37 @@ function move(e) {
     case 39: // если нажата клавиша вправо
       xPos += 53;
       break;
-    case 40: // если нажата клавиша вниз
-      yPos += 10;
-      break;
+    //case 40: // если нажата клавиша вниз
+    //  yPos += 10;
+  //    break;
   }
 }
 document.addEventListener("keydown", move);
 
-// позиция кубика
-var xPos = 53;
+// начальная позиция кубика
+var xPos = 106;
 var yPos = 53;
 var grav = -1;
 
-//отслеживание позиции куба
 
+//отслеживание позиции куба
 function draw() {
   ctx.drawImage(bg, 0, 0);
-  ctx.drawImage(cubeDown, xPos, yPos);
 
 
+ctx.drawImage(cubeDown, xPos, yPos);
   yPos -= grav;
 
-  requestAnimationFrame(draw);
-}
+  //касание к низу
+  if (yPos + cubeDown.width >= cvs.height){
 
+    grav=0;
+
+      }
+requestAnimationFrame(draw);
+  }
+
+
+
+requestAnimationFrame(draw);
 red.onload = draw;
