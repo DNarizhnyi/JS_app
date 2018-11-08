@@ -25,6 +25,7 @@ scoreAudio.src = "js_game_audio/score.mp3";
 
 
 var gap = 120;
+
 // При нажатии на кнопку
 document.addEventListener("keydown",moveUp); // найти addEventListener
 function moveUp (){
@@ -62,6 +63,7 @@ function draw (){
       y: Math.floor(Math.random()* pipeUp.height - pipeUp.height)
     });
     }
+
     // Отслеживание прикосновений
  if(xPos + bird.width >= pipe[i].x
  && xPos <= pipe[i].x + pipeUp.width
